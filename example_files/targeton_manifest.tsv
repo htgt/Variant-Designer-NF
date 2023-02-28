@@ -1,0 +1,11 @@
+assembly	chr	start	end	"feature (eg exon, enhancer, promoter)"	target_human readable id	(design) profile_id	chosen_grna (optional wge_id)	MANE transcript	MANE Exon	ENSE_ID	Coding Exon Size(bp)	Region-to-be-included	include_intronic_mutation? (Yes/ No/ Yes if possible)	Maximum upstream (Default:25)	Maximum downstream (Default:15)	Minimum upstream (Default:0)	Minimum downstream (Default:0)	Mutation to be include in upstream (default: snv)	"Mutation to be include in R2 (default: snvre,inframe)"	Mutation to be include in downstream (default: snv)
+hg38	chr1	42958634	42958651	"Exon"	SLC2A1_EX1	p2	906062669	ENST00000426263.10	1	ENSE00003764341.3	18		Yes	207	15	197	15	"1del,snv"	"snvre,inframe,stop, ala"	"1del,snv"
+hg38	chr1	42943226	42943321	"Exon"	SLC2A1_EX2	p2	906060158	ENST00000426263.10	2	ENSE00000870228.4	96		Yes	25	15	5	5	"1del,snv"	"snvre,inframe,stop, ala"	"1del,snv"
+hg38	chr7	44490409	44490600	"Exon"	NUDCD3_EX1	p3	1023902210	ENST00000355451.8	1	ENSE00001700145	192		Yes	25	15	5	5	"1del,2del,snv"	"1del,snvre,inframe,stop,ala"	"1del,2del,snv"
+hg38	chr7	44484968	44485284	"Exon"	NUDCD3_EX2A	p3	1023901560	ENST00000355451.8	2	ENSE00003554652	317	chr7:44484968-44485092	Yes	25	15	5	5	"1del,2del,snv"	"1del,snvre,inframe,stop,ala"	"1del,2del,snv"
+hg38	chr14	95106041	95106223	"Exon"	DICER1_EX18	p3	1121590753	ENST00000343455.8	18	ENSE00003967972	183		Yes	25	15	10	5	"1del,2del,snv"	"1del,snvre,inframe,stop,aa"	"1del,2del,snv"
+hg38	chr14	95105678	95105783	"Exon"	DICER1_EX19	p3	1121590710	ENST00000343455.8	19	ENSE00003967967	106		Yes	25	15	5	5	"1del,2del,snv"	"1del,snvre,inframe,stop,aa"	"1del,2del,snv"
+hg38	chr16	67610824	67611613	"Exon"	CTCF_EX3A	p2		ENST00000264010.10	3	ENSE00002242686.1			Yes	25	15	20	5	"2del,snv"	"aa,inframe,stop,snvre"	"2del,snv"
+hg38	chr16	67610824	67611613	"Exon"	CTCF_EX3B	p2		ENST00000264010.10	3	ENSE00002242686.1			Yes	25	15	20	5	"2del,snv"	"aa,inframe,stop,snvre"	"2del,snv"
+hg38	chr16	67611951	67612121	"Exon"	CTCF_EX4	p2		ENST00000264010.10	4	ENSE00001645353.1			Yes	25	15	5	5	"2del,snv"	"aa,inframe,stop,snvre"	"2del,snv"
+hg38	chr16	67616745	67616878	"Exon"	CTCF_EX5	p2	1139541055	ENST00000264010.10	5	ENSE00003589627.1			Yes	25	15	5	5	"2del,snv"	"aa,inframe,stop,snvre"	"2del,snv"

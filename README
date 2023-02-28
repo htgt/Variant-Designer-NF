@@ -1,0 +1,32 @@
+# Variant Designer Nextflow PoC
+
+Short section of the Variant Designer tool.
+
+[[_TOC_]]
+
+## Dependencies
+* Singularity - https://github.com/sylabs/singularity
+* Dispr - https://github.com/douglasgscofield/dispr
+
+## Description
+### Target Region Manifest TSV
+Tab separated file detailing the chromosome, start, end and vectors
+
+### MANE Summary
+Matched Annotation file - https://www.ncbi.nlm.nih.gov/refseq/MANE/
+Transcripts on a genome scale. Updated regularly
+
+### autofill_targeton_manifest.r
+Converts the manifest file to be usable downstream in VaLiAnT (Out of scope for PoC). Generates BED files needed in the next steps as well
+
+### generate_bedfiles.sh
+Runs Dispr on the BED files. Checks regions against genome for any mismatches
+
+### ClinVar VCF
+Variation reference file. Updated weekly
+
+### retrieve_targeton_region_variants.sh
+Subsets variation reference file for the target region
+
+### Targeton VCF 
+Subset variation file
