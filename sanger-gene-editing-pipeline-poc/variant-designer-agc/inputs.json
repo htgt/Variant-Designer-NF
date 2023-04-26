@@ -1,0 +1,15 @@
+{
+    "gene_name" : "CTCF",
+    "chromosome" : "chr16",
+    "clinvar_ver": "clinvar",
+    "targets" : "s3://<agc-bucket-name>/project/GeneEditingPipeline/inputs/VariantDesigner/CTCF_target_regions_manifest.txt",
+    "targetons" : "s3://<agc-bucket-name>/project/GeneEditingPipeline/inputs/VariantDesigner/design_choices_51-63.tsv",
+    "output_dir":"s3://<agc-bucket-name>/project/GeneEditingPipeline/outputs/VariantDesigner/",
+    "validation_utils" : "s3://<agc-bucket-name>/project/GeneEditingPipeline/resources/VariantDesigner/R/validation_utils.R",
+    "glue_file" : "s3://<agc-bucket-name>/project/GeneEditingPipeline/resources/VariantDesigner/mane/MANE.GRCh38.v1.0.summary.txt.gz",
+    "update_chroms" : "s3://<agc-bucket-name>/project/GeneEditingPipeline/resources/VariantDesigner/other/update_chroms.txt",
+    "chrom_file" : "s3://<agc-bucket-name>/project/GeneEditingPipeline/resources/VariantDesigner/assembly/Homo_sapiens_assembly38_chr16.fa",
+    "report_dir": "s3://<agc-bucket-name>/project/GeneEditingPipeline/reports/VariantDesigner/",
+    "resource_dir": "s3://<agc-bucket-name>/project/GeneEditingPipeline/resources/VariantDesigner",
+    "container_registry": "<account-number>.dkr.ecr.us-east-1.amazonaws.com"
+}
