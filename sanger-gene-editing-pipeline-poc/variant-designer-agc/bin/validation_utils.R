@@ -105,15 +105,16 @@ target_region_exists <- function(gene_name, ex_pos, cds_pos, ex_id, tx_id, ex_nu
   mergeable == 1
 }
 
-
-print("val-I")
+#pull it file by file 
+print("val-getwd")
+getwd()
 retrieve_wge_data <- function(grna_id) {
   if (!is.na(grna_id)) {
-    res <- GET(glue("https://wge.stemcell.sanger.ac.uk/api/crispr_by_id?id={grna_id}&id={grna_id}&species=Grch38"))
-    seq <- fromJSON(rawToChar(res$content))[[1]][["seq"]]
-    start <- fromJSON(rawToChar(res$content))[[1]][["chr_start"]]
-    dir <- fromJSON(rawToChar(res$content))[[1]][["pam_right"]]
-    off_targets <- fromJSON(rawToChar(res$content))[[1]][["off_target_summary"]]
+    res <- paste(sgRNA_ids,"/grna_",grna_id,".txt", sep="")
+    seq <- fromJSON(res)[[1]][["seq"]]
+    start <- fromJSON(res)[[1]][["chr_start"]]
+    dir <- fromJSON(res)[[1]][["pam_right"]]
+    off_targets <- fromJSON(res)[[1]][["off_target_summary"]]
     if (dir == 1) {
       sequence <- substr(seq, start = 1, stop = 20)
     } else {

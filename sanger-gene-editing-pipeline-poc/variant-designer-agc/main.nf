@@ -13,10 +13,12 @@ resource_dir = params.resource_dir
 targets = Channel.fromPath(params.targets)
 targetons = Channel.fromPath(params.targetons)
 
+
 // Stage input resources
 validation_utils = Channel.fromPath(params.validation_utils)
 glue_file = Channel.fromPath(params.glue_file)
 update_chroms = Channel.fromPath(params.update_chroms)
+sgRNA_ids = Channel.fromPath(params.sgRNA_ids)
 clinvar = Channel.fromPath("${resource_dir}/clinvar/${clinvar_ver}.vcf.gz")
 clinvar_tbi = Channel.fromPath("${resource_dir}/clinvar/${clinvar_ver}.vcf.gz.tbi")
 gnomad_v2 = Channel.fromPath("${resource_dir}/gnomad/exomes/gnomad.exomes.r2.1.1.sites.${query_chromosome}.liftover_grch38.vcf.bgz")
@@ -33,13 +35,17 @@ process AutofillTargeton {
         path glue_file
         path targets
         path targetons
+        path sgRNA_ids
 
+    // TODO: range should be an input parameter "targetons_{range}_manifest.tsv"
+    // TODO: output filenames should be parameters
     output:
         path 'x_primers.tsv', emit:primer_file
+    // TODO: deal with multiple outputs that may be needed later
     
     script:
         """
-        autofill_targeton_manifest.R $validation_utils $glue_file $targets $targetons
+        autofill_targeton_manifest.R $validation_utils $glue_file $targets $targetons $sgRNA_ids
         """
 }
 
@@ -65,7 +71,6 @@ process GenerateBedFiles {
 process RetrieveTargetons {
     publishDir "${params.output_dir}"
     container = "${params.container_registry}/gene-editing-pipeline/retrieve-targetons:1.0.0"
-
     input:
         path(primer_bed)
         val(gene_name)
@@ -79,6 +84,9 @@ process RetrieveTargetons {
         path(gnomad_v2_tbi)
         path(gnomad_v3)
         path(gnomad_v3_tbi)
+        
+        
+        
 
     output:
         path "clinvar_rename.vcf.gz"
@@ -95,7 +103,10 @@ process RetrieveTargetons {
 
 
 workflow {
-  AutofillTargeton(validation_utils, glue_file, targets, targetons)
+  AutofillTargeton(validation_utils, glue_file, targets, targetons,sgRNA_ids)
   GenerateBedFiles(chrom_file, AutofillTargeton.out.primer_file, gene_name)
   RetrieveTargetons(GenerateBedFiles.out.primer_bed, gene_name, chromosome, update_chroms, query_chromosome, clinvar_ver, clinvar, clinvar_tbi, gnomad_v2, gnomad_v2_tbi, gnomad_v3, gnomad_v3_tbi)
 }
+
+
+

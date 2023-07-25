@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Copyright 2023 Amazon.com and its affiliates; all rights reserved. This file is Amazon Web Services Content and may
-# not be duplicated or distributed without permission.
-
 # This script shows how to build the Docker image and push it to ECR to be ready for use
 # by Amazon Genomics CLI.
 

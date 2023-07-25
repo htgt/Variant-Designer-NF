@@ -6,6 +6,7 @@ validation_utils_r <- args[1]
 glue_file <- args[2]
 targets_tsv <- args[3]
 targetons_tsv <- args[4]
+sgRNA_ids <- args[5]
 
 ################################################################################
 # Setup depedencies ------------------------------------------------------------
@@ -30,6 +31,7 @@ mane_summary_data <- read_tsv(
   col_types = cols()
 )
 
+# TODO: range should be an input parameter
 range <- "63-70"
 
 ################################################################################
@@ -43,6 +45,7 @@ print("done")
 print("Reading targetons...")
 targetons <- read_tsv(targetons_tsv)
 print("done")
+#sgrna <-read.txt(sgRNA_ids)
 # Add a list column to targets detailing split and regular targetons
 # targets[["Targeton_ID"]] <- c(
 #   list(targetons[["Targeton_ID"]][1:4]),
@@ -128,7 +131,7 @@ data_plus_act_vec <- data_plus_ext_vec |>
     r2_mutator = `Mutation to be include in R2 (default: snvre,inframe)`,
     split_pos = split_pos
   ))
-
+  print("line 132")
 # Pull sgRNA data from WGE and create the sgRNA vector which IDs a lib
 data_plus_sgrna_info <- data_plus_act_vec |>
   mutate(
