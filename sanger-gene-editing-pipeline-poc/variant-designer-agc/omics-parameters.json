@@ -1,0 +1,60 @@
+{
+    "gene_name": {
+        "description": "gene name",
+        "optional": false
+    },
+    "chromosome": {
+    "description": "chromosome",
+    "optional": false
+    },
+    "targets": {
+        "description": "targets",
+        "optional": false
+     },
+    "targetons": {
+        "description": "targetons",
+        "optional": false
+    },
+    "output_dir": {
+        "description": "output_dir",
+        "optional": false
+    },
+    "validation_utils": {
+        "description": "validation_utils",
+        "optional": false
+    },
+    "glue_file": {
+    "description": "glue_file",
+    "optional": false
+    },
+    "update_chroms": {
+        "description": "update_chroms",
+        "optional": false
+     },
+    "chrom_file": {
+        "description": "chrom_file",
+        "optional": false
+    },
+    "report_dir": {
+        "description": "species of sample",
+        "optional": false
+    },
+    "container_registry": {
+        "description": "container_registry",
+        "optional": false
+    },
+    "resource_dir": {
+        "description": "report_dir",
+        "optional": false
+    },
+    "sgRNA_ids": {
+        "description": "ids for autofill task",
+        "optional": false
+    },
+    
+    "clinvar_ver": {
+        "description": "value for clinvar",
+        "optional": false
+    }
+    
+}
