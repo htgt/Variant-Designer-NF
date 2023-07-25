@@ -52,5 +52,6 @@ aws s3 cp s3://gnomad-public-us-east-1/release/2.1.1/liftover_grch38/vcf/exomes/
 aws s3 cp s3://gnomad-public-us-east-1/release/3.1/vcf/genomes/gnomad.genomes.v3.1.sites.chr${GNOMAD_CHR}.vcf.bgz ${S3_URI}/project/GeneEditingPipeline/resources/VariantDesigner/gnomad/genomes/
 aws s3 cp s3://gnomad-public-us-east-1/release/3.1/vcf/genomes/gnomad.genomes.v3.1.sites.chr${GNOMAD_CHR}.vcf.bgz.tbi ${S3_URI}/project/GeneEditingPipeline/resources/VariantDesigner/gnomad/genomes/
 
+
 # remove temp dir
 rm -r $TMPDIR
